@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import com.springweb.model.Car;
 import com.springweb.util.DbUtil;
-
+//Data from Database
 public class CarDao{
   private Connection connection;
 
-  public CarDao{
+  public CarDao(){
     connection = DbUtil.getConnection();
   }
 

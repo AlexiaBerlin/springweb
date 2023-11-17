@@ -17,10 +17,10 @@ public class DbUtil {
         return connection;
         }else{
           try{
-            Properties pro = new Properties();
-            InputStream inputStream = DbUtil.class.getClassloader().getResourceAsStream("/db.properties");
+            Properties prop = new Properties();
+            InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
             prop.load(inputStream);
-            String driver = prop.load("driver");
+            String driver = prop.getProperty("driver");
             String url = prop.getProperty("url");
             String user = prop.getProperty("user");
             String password = prop.getProperty("password");

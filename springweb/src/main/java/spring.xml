@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Defining a bean for UserService -->
+    <bean id="car" class="com.springweb.model.Car">
+        <!-- Injecting DataService dependency -->
+<!--    <property name="dataService" ref="dataService"/> -->
+    </bean>
+
+    <!-- Defining a bean for DataService -->
+    <bean id="CarDao" class="com.springweb.dao.CarDao">
+        <!-- Any specific configurations or properties -->
+    </bean>
+
+</beans>

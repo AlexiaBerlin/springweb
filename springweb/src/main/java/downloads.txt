@@ -1,0 +1,7 @@
+http://central.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+
+http://www.java2s.com/Code/JarDownload/spring-/spring-2.5.jar.zip
+
+http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar
+
+http://repo1.maven.org/maven2/jstl/jstl/1.2/jstl-1.2.jar
