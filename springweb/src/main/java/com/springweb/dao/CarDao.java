@@ -25,14 +25,63 @@ public class CarDao{
     } catch (SQLException e){
       e.printStackTrace();
     }
-}
-  public void deleteCar(int CarId){
+  }
+
+  public void deleteCar(int carId){
     try {
-      PreparedStatement preparedStatement = connection.prepareStatement("delete from cars where Carid=?");
-      preparedStatement.setInt(1, CarId);
+      PreparedStatement preparedStatement = connection.prepareStatement("delete from Cars where carId=?");
+      preparedStatement.setInt(1, carId);
       preparedStatement.executeUpdate();
     } catch (SQLException e){
       e.printStackTrace();
     }
+  }
+
+   public void updateCar(Car car){
+    try{
+      PreparedStatement preparedStatement = connection.prepareStatement("update cars set manufacture=?, model=?" + "where carId=?");
+      preparedStatement.setString(1, car.getManufacture());
+      preparedStatement.setInt(2, car.getModel());
+      preparedStatement.executeUpdate();
+    } catch (SQLException e){
+      e.printStackTrace();
+    }
+  }
+
+  public List<Car>getAllCars(){
+    List<Car> cars = new ArrayList<Car>();
+    try{
+      Statement statement = connection.createStatement();
+      ResultSet rs = statement.executeQuery("select * from cars");
+      while(rs.next()){
+        Car car = new Car();
+        car.setCarId(rs.getInt("carId"));
+        car.setManufacture(rs.getString("manufacture"));
+        car.setModel(rs.getInt("model"));
+        cars.add(car);
+      }
+    } catch (SQLException e){
+      e.printStackTrace();
+    }
+    return cars;
+   }
+
+  public Car getCarById(int carId){
+    Car car = new Car();
+    try{
+      PreparedStatement preparedStatement = connection.prepareStatement("select * from cars where carId=?");
+      preparedStatement.setInt(1, carId);
+      ResultSet rs = preparedStatement.executeQuery();
+
+      if(rs.next()){
+        car.setCarId(rs.getInt("carId"));
+        car.setManufacture(rs.getString("manufacture"));
+        car.setModel(rs.getInt("model"));
+      }
+
+    } catch (SQLException e){
+      e.printStackTrace();
+    }
+    return car;
    }
 }
